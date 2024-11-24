@@ -157,4 +157,4 @@ pip install --upgrade google-auth google-auth-oauthlib google-auth-httplib2 goog
 - **Permissions:** Ensure you have the correct permissions for all files in the Shared Drive.
 - **Google API Quota:** If you hit Google API quota limits, wait for the quota to reset (usually 24 hours).
 
-_Note: This script has been tested on Windows 11._
+_Note: This script has been tested on Windows 11 and an iMac._
