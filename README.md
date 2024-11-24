@@ -84,55 +84,75 @@ Before you start, ensure the following:
 2. Download the repository as a ZIP file or clone it using:
    ```bash
    git clone https://github.com/yourusername/your-repo-name.git
-Navigate to the folder containing the script:
-cd your-repo-name
-Step 3.2: Install Python Libraries
+   ```
+3. Navigate to the folder containing the script:
+   ```bash
+   cd your-repo-name
+   ```
+
+#### Step 3.2: Install Python Libraries
 Run the following command in the terminal to install dependencies:
-
+```bash
 pip install --upgrade google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
-Step 3.3: Update the Script
-Place the client_secret.json file in the same folder as the script.py file.
-Set Your Shared Drive ID:
-Open the script (script.py) in a text editor.
-Locate the line:
-shared_drive_id = 'YOUR_SHARED_DRIVE_ID'  # Replace with your Shared Drive ID
-Replace 'YOUR_SHARED_DRIVE_ID' with the ID of your Shared Drive.
-You can find the Shared Drive ID in the URL of the drive:
-https://drive.google.com/drive/u/0/folders/{SHARED_DRIVE_ID}
-Ensure the Local Path for Backups is Correctly Set:
-Update the base_path and local_path variables in the script to point to your desired backup directory.
-base_path = "E:/"  # Replace with your preferred base directory
-local_path = os.path.join(base_path, "GoogleDriveBackup")
-4. Running the Script
-Open a terminal (or command prompt) and navigate to the script folder.
-Run the script:
-python script.py
-A browser window will open, asking you to log in and authorize access.
-After authorizing, the script will begin downloading files to your specified local directory.
-5. Common Errors and Fixes
-Error: "Path Too Long"
+```
 
-Cause: Windows path length exceeds 260 characters.
-Fix: The script truncates folder and file names to avoid this issue.
-Error: "Invalid Characters in File Name"
+#### Step 3.3: Update the Script
 
-Cause: Some file names contain invalid characters (<, >, :, etc.).
-Fix: The script automatically removes or replaces invalid characters.
-Error: "File Too Large to Export"
+1. Place the `client_secret.json` file in the same folder as the `script.py` file.
+2. Set Your Shared Drive ID:
+   - Open the script (`script.py`) in a text editor.
+   - Locate the line:
+     ```python
+     shared_drive_id = 'YOUR_SHARED_DRIVE_ID'  # Replace with your Shared Drive ID
+     ```
+   - Replace 'YOUR_SHARED_DRIVE_ID' with the ID of your Shared Drive.
+   - You can find the Shared Drive ID in the URL of the drive:
+     `https://drive.google.com/drive/u/0/folders/{SHARED_DRIVE_ID}`
+3. Ensure the Local Path for Backups is Correctly Set:
+   - Update the base_path and local_path variables in the script to point to your desired backup directory.
+     ```python
+     base_path = "E:/"  # Replace with your preferred base directory
+     local_path = os.path.join(base_path, "GoogleDriveBackup")
+     ```
 
-Cause: Google-native files exceed export size limits.
-Fix: The script logs the error and continues with the next file.
-Error: "File Not Found"
+### 4. Running the Script
 
-Cause: The file was deleted, moved, or inaccessible.
-Fix: The script logs the error and continues with the next file.
-6. Verifying Progress
-The script skips files that already exist and haven't changed since the last backup.
-If the script is interrupted, you can re-run it to continue from where it left off.
-Backup reports are generated after each run in the reports directory.
-7. Troubleshooting
-Log Files: Review the backup reports in the reports directory for details on skipped or failed files.
-Permissions: Ensure you have the correct permissions for all files in the Shared Drive.
-Google API Quota: If you hit Google API quota limits, wait for the quota to reset (usually 24 hours).
-Note: This script has been tested on Windows 11.
+1. Open a terminal (or command prompt) and navigate to the script folder.
+2. Run the script:
+   ```bash
+   python script.py
+   ```
+3. A browser window will open, asking you to log in and authorize access.
+4. After authorizing, the script will begin downloading files to your specified local directory.
 
+### 5. Common Errors and Fixes
+
+**Error: "Path Too Long"**
+- Cause: Windows path length exceeds 260 characters.
+- Fix: The script truncates folder and file names to avoid this issue.
+
+**Error: "Invalid Characters in File Name"**
+- Cause: Some file names contain invalid characters (<, >, :, etc.).
+- Fix: The script automatically removes or replaces invalid characters.
+
+**Error: "File Too Large to Export"**
+- Cause: Google-native files exceed export size limits.
+- Fix: The script logs the error and continues with the next file.
+
+**Error: "File Not Found"**
+- Cause: The file was deleted, moved, or inaccessible.
+- Fix: The script logs the error and continues with the next file.
+
+### 6. Verifying Progress
+
+- The script skips files that already exist and haven't changed since the last backup.
+- If the script is interrupted, you can re-run it to continue from where it left off.
+- Backup reports are generated after each run in the reports directory.
+
+### 7. Troubleshooting
+
+- **Log Files:** Review the backup reports in the reports directory for details on skipped or failed files.
+- **Permissions:** Ensure you have the correct permissions for all files in the Shared Drive.
+- **Google API Quota:** If you hit Google API quota limits, wait for the quota to reset (usually 24 hours).
+
+_Note: This script has been tested on Windows 11._
