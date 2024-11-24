@@ -2,6 +2,8 @@
 
 This script allows you to export all files from a Google Workspace Shared Drive to your local machine. As of November 2024, there is currently no way to backup or export Shared Drive content using Google Takeout or by right-clicking and downloading the files, due to errors such as files being too large, file names containing strange characters, or file names being too long. This program was written to address these challenges.
 
+![Run Script GIF](https://github.com/yurigushiken/google-shared-drive-exporter/blob/main/images/YouCut_20241115_174925804_1.gif?raw=true)
+
 **Use Case:** If you have a Shared Drive with tens of thousands of files and need to update them, but encounter errors when trying to download from within the browser, this script provides a reliable solution to back up your data.
 
 ## Improvements in This Project
